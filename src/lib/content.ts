@@ -1,0 +1,217 @@
+/**
+ * Single source of truth for all site copy & data.
+ * Sourced from NavGPA marketing collateral, the Apex QS Solutions / Nav Projects
+ * Support Ltd company profile, and the founder's published ICE research.
+ */
+
+export const company = {
+  name: "NAV Global Project Advisory",
+  shortName: "NavGPA",
+  legalLegacy: "Nav Projects Support Ltd.",
+  tagline: "Building Confidence. Delivering Value.",
+  pillars: ["Advise", "Manage", "Deliver Value"],
+  badge: ["USA Based", "Globally Focused", "Future Ready"],
+  heroLede:
+    "Expert construction & commercial advisory powered by digital innovation, data and global experience.",
+  intro:
+    "A USA-based construction and commercial advisory firm providing end-to-end consultancy services for the built environment across the globe. We help clients plan smarter, manage better and deliver successful projects with confidence.",
+  location: "San Francisco, California",
+  phone: "+1 510 322 1536",
+  phoneHref: "tel:+15103221536",
+  email: "info@navgpa.com",
+  emailHref: "mailto:info@navgpa.com",
+  web: "navgpa.com",
+} as const;
+
+export const stats = [
+  { value: "17+", label: "Years of experience" },
+  { value: "8", label: "Core advisory services" },
+  { value: "4", label: "Continents served" },
+  { value: "5D", label: "BIM cost intelligence" },
+] as const;
+
+export const valueProps = [
+  {
+    key: "global",
+    title: "Global Mindset",
+    body: "Serving clients across the USA, UK, Middle East, Asia & beyond with one consistent standard of excellence.",
+    icon: "globe",
+  },
+  {
+    key: "data",
+    title: "Data Driven",
+    body: "Digital workflows, BIM and analytics turn project data into clear, confident commercial decisions.",
+    icon: "chart",
+  },
+  {
+    key: "trusted",
+    title: "Trusted Advisor",
+    body: "Integrity, transparency and commitment at every stage — your interests protected from inception to handover.",
+    icon: "shield",
+  },
+  {
+    key: "success",
+    title: "Client Success",
+    body: "Focused on value creation and long-term partnerships, not one-off transactions.",
+    icon: "users",
+  },
+] as const;
+
+export const approach = [
+  {
+    step: "01",
+    title: "Advise",
+    headline: "Strategic insight, smart decisions",
+    body: "We frame the commercial strategy early — feasibility, budgets, risk and procurement routes — so the right calls are made before cost is locked in.",
+  },
+  {
+    step: "02",
+    title: "Manage",
+    headline: "Cost · Risk · Contract performance",
+    body: "Through delivery we control cost, administer contracts and monitor performance, keeping the project measurable, accountable and on track.",
+  },
+  {
+    step: "03",
+    title: "Deliver Value",
+    headline: "Efficiency · Certainty · Sustainable results",
+    body: "We close out with certainty — settled accounts, captured lessons and outcomes that protect value over the whole asset lifecycle.",
+  },
+] as const;
+
+export const services = [
+  {
+    title: "Quantity Surveying",
+    body: "Accurate measurement and rigorous cost management at every stage of the project lifecycle.",
+    icon: "ruler",
+  },
+  {
+    title: "Cost Estimating & Cost Planning",
+    body: "Robust cost planning and estimation that give clients dependable numbers for informed decisions.",
+    icon: "calculator",
+  },
+  {
+    title: "BIM & Digital Take-offs",
+    body: "BIM modelling and accurate 5D cost take-offs that connect design intent to commercial reality.",
+    icon: "cube",
+  },
+  {
+    title: "Tender & Procurement Support",
+    body: "Tender documentation, bid analysis and supplier engagement to secure the best value packages.",
+    icon: "doc",
+  },
+  {
+    title: "Contract Administration",
+    body: "Contract management, payment certification and reporting under JCT, NEC and bespoke forms.",
+    icon: "scroll",
+  },
+  {
+    title: "Commercial Management",
+    body: "Maximising value, monitoring cost and driving performance across the supply chain.",
+    icon: "trend",
+  },
+  {
+    title: "Claims & Variations",
+    body: "Claims preparation, evaluation and negotiation — including extension-of-time and loss & expense.",
+    icon: "scale",
+  },
+  {
+    title: "Project Advisory",
+    body: "Strategic, independent advice that solves the hard problems and creates value for stakeholders.",
+    icon: "compass",
+  },
+] as const;
+
+export const founder = {
+  name: "N. Narendra Vasudeva",
+  role: "Founder & Director",
+  credentials:
+    "PGCAP · MSc (BIM) · BSc (Hons) Quantity Surveying · Dip. Commercial Arbitration · Assoc. APM · FHEA",
+  titles: [
+    "Senior Quantity Surveyor",
+    "Cost Manager",
+    "BIM / 5D Consultant",
+    "Construction Management Lecturer",
+  ],
+  bio: [
+    "Narendra brings over 17 years of experience in quantity surveying, cost management, BIM implementation, project controls and construction education.",
+    "His work spans residential developments, commercial buildings, hotels, mixed-use schemes and infrastructure across the UK, Sri Lanka, the Middle East and the USA — combining deep commercial discipline with a digital-first, BIM-aligned way of working.",
+  ],
+  mission:
+    "To provide construction professionals with accurate, dependable and technology-driven commercial and BIM support that improves project outcomes.",
+} as const;
+
+export const publication = {
+  label: "Published research",
+  title:
+    "Ethical and social implications of smart contracts in construction: comparison with Joint Contracts Tribunal procedures",
+  authors: "N. N. Vasudeva & P. Tracey — University of Salford, Manchester, UK",
+  venue: "Proceedings of the Institution of Civil Engineers (ICE)",
+  blurb:
+    "Peer-reviewed research on blockchain-enabled smart contracts, BIM and the JCT 2024 suite — proposing a hybrid model where automation adds auditable efficiency while professional judgement and fairness are preserved.",
+  href: "/vasudeva-smart-contracts-construction-ice.pdf",
+} as const;
+
+export const trackRecord = [
+  {
+    project: "Battersea Power Station",
+    location: "London, UK",
+    role: "BIM coordination · 4D structural simulation",
+    detail:
+      "Supported the BIM Manager developing 4D simulation of the structural scope on the landmark redevelopment (structural package, J. Coffey to Mace) under the Level 2 BIM protocol.",
+  },
+  {
+    project: "Soapworks — Ministry of Justice",
+    location: "MediaCityUK",
+    role: "Government Soft Landings research",
+    detail:
+      "MSc dissertation evaluating Government Soft Landings (GSL) and PRINCE2 project-management structures within a BIM-aligned government project.",
+  },
+  {
+    project: "Taj Samudra Hotel",
+    location: "Colombo, Sri Lanka",
+    role: "Commercial management",
+    detail:
+      "Commercial manager on the refurbishment of the landmark city hotel, controlling cost and contract through a live, occupied environment.",
+  },
+  {
+    project: "Renuka Organic Factory & Warehouse",
+    location: "Watupitiwala FTZ, Sri Lanka",
+    role: "Project management · cost control",
+    detail:
+      "Engaged from early design — developing contract documents, subcontract agreements, progress schedules and cost-control systems for the factory and warehouse build.",
+  },
+  {
+    project: "Church of the Ascension",
+    location: "Salford, UK",
+    role: "Value engineering · low-carbon",
+    detail:
+      "Comparative feasibility study and value-engineering exercise on renewable-energy options for the rebuild of a Grade II-listed church.",
+  },
+  {
+    project: "Modular Housing Programme",
+    location: "United Kingdom",
+    role: "QS · takt-time cost analysis",
+    detail:
+      "Quantity surveying and time-and-motion (takt-time) cost analysis for prefabricated modular homes, benchmarking modern methods of construction.",
+  },
+] as const;
+
+export const sectors = [
+  "Commercial",
+  "Residential",
+  "Industrial",
+  "Infrastructure",
+  "Healthcare",
+  "Education",
+  "Hospitality",
+  "Mixed-Use",
+] as const;
+
+export const nav = [
+  { label: "Services", href: "#services" },
+  { label: "Approach", href: "#approach" },
+  { label: "About", href: "#about" },
+  { label: "Track Record", href: "#track-record" },
+  { label: "Sectors", href: "#sectors" },
+  { label: "Contact", href: "#contact" },
+] as const;

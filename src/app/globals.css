@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/*  NAV Global Project Advisory — Design Tokens                        */
+/* ------------------------------------------------------------------ */
+@theme {
+  /* Brand navy scale */
+  --color-navy-950: #070d20;
+  --color-navy-900: #0b1430;
+  --color-navy-800: #101d44;
+  --color-navy-700: #17285c;
+  --color-navy-600: #20356f;
+  --color-navy-500: #2c4488;
+
+  /* Gold / bronze accent (from marketing collateral) */
+  --color-gold-300: #e7cd86;
+  --color-gold-400: #d9bc73;
+  --color-gold-500: #c4a24c;
+  --color-gold-600: #a9863a;
+
+  /* Orange accent (from logo) */
+  --color-ember-400: #f47a3c;
+  --color-ember-500: #e8631f;
+  --color-ember-600: #cf5212;
+
+  /* Neutrals */
+  --color-sand-50: #faf8f3;
+  --color-sand-100: #f4f0e7;
+  --color-sand-200: #e9e2d3;
+  --color-ink-700: #2b3344;
+  --color-ink-500: #54607a;
+
+  /* Fonts (wired up via next/font variables in layout.tsx) */
+  --font-display: var(--font-saira), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink-700);
+  background: var(--color-sand-50);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-gold-500);
+  color: var(--color-navy-900);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Reusable utilities                                                 */
+/* ------------------------------------------------------------------ */
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  /* Section eyebrow label */
+  .eyebrow {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-weight: 600;
+    font-size: 0.78rem;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(90deg, #e7cd86 0%, #c4a24c 55%, #a9863a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Blueprint grid background (hero) */
+  .bg-blueprint {
+    background-image:
+      linear-gradient(to right, rgba(140, 170, 230, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(140, 170, 230, 0.07) 1px, transparent 1px);
+    background-size: 46px 46px;
+  }
+
+  /* Thin decorative rule with center diamond */
+  .rule-dot::before,
+  .rule-dot::after {
+    content: "";
+    display: inline-block;
+    height: 1px;
+    width: 2.5rem;
+    background: currentColor;
+    opacity: 0.5;
+    vertical-align: middle;
+    margin: 0 0.85rem;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Scroll reveal animation                                            */
+/* ------------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.7s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Subtle drifting glow for hero */
+@keyframes float-glow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(0, -16px, 0) scale(1.04);
+    opacity: 0.8;
+  }
+}
+.animate-float-glow {
+  animation: float-glow 11s ease-in-out infinite;
+}
+
+/* Marquee for sectors strip */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-float-glow {
+    animation: none;
+  }
+}
