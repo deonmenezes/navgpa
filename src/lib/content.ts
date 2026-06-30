@@ -194,6 +194,13 @@ export const trackRecord = [
     detail:
       "Quantity surveying and time-and-motion (takt-time) cost analysis for prefabricated modular homes, benchmarking modern methods of construction.",
   },
+  {
+    project: "Newlands House & Oakhill Clinic",
+    location: "United Kingdom",
+    role: "Construction programming",
+    detail:
+      "Developed the construction-stage works programme across buildings A–D for the Newlands House and former Oakhill Clinic development (Tydewell Ltd.).",
+  },
 ] as const;
 
 export const sectors = [
@@ -208,10 +215,104 @@ export const sectors = [
 ] as const;
 
 export const nav = [
-  { label: "Services", href: "#services" },
-  { label: "Approach", href: "#approach" },
-  { label: "About", href: "#about" },
-  { label: "Track Record", href: "#track-record" },
-  { label: "Sectors", href: "#sectors" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/#services" },
+  { label: "Approach", href: "/#approach" },
+  { label: "About", href: "/#about" },
+  { label: "Projects", href: "/projects" },
+  { label: "Sectors", href: "/#sectors" },
+  { label: "Contact", href: "/#contact" },
+] as const;
+
+/**
+ * Full case studies for the dedicated /projects page.
+ * Drawn from the Apex QS Solutions / Nav Projects Support Ltd company profile,
+ * rebranded for NavGPA (legacy branding and personal contact details removed).
+ */
+export const caseStudies = [
+  {
+    project: "Battersea Power Station",
+    location: "London, United Kingdom",
+    region: "United Kingdom",
+    sector: "Mixed-Use Regeneration",
+    role: "BIM Coordinator",
+    client: "J. Coffey Construction (structural package to Mace)",
+    detail:
+      "Supported the BIM Manager on one of London's largest regeneration schemes, contributing to the daily use of project information and BIM processes for the structural package. Helped develop a 4D simulation of the structural scope — sequencing construction against programme under the Level 2 BIM protocol.",
+    highlights: ["4D structural simulation", "Level 2 BIM protocol", "Information management"],
+  },
+  {
+    project: "Soapworks — Ministry of Justice",
+    location: "MediaCityUK, United Kingdom",
+    region: "United Kingdom",
+    sector: "Government / Workplace",
+    role: "Researcher — MSc Dissertation",
+    client: "Ministry of Justice · University of Salford",
+    detail:
+      "A six-month MSc research study at the Ministry of Justice exploring the benefits of Government Soft Landings (GSL) on BIM-aligned projects. Evaluated the PRINCE2 project-management structure adopted at MoJ against traditional approaches, capturing the operational and handover benefits of a soft-landings methodology.",
+    highlights: ["Government Soft Landings", "PRINCE2 evaluation", "BIM-aligned delivery"],
+  },
+  {
+    project: "Church of the Ascension",
+    location: "Lower Broughton, Salford, UK",
+    region: "United Kingdom",
+    sector: "Heritage / Low-Carbon",
+    role: "Value Engineering Researcher",
+    client: "Parish Church Council",
+    detail:
+      "Comparative feasibility study and design proposals for renewable-energy options within the rebuild programme of the Grade II-listed Church of the Ascension. Carried out a value-engineering exercise on stained-glass window panels and their impact on the building's energy consumption.",
+    highlights: ["Renewable-energy feasibility", "Grade II-listed heritage", "Value engineering"],
+  },
+  {
+    project: "Demonstrator Modular Home",
+    location: "United Kingdom",
+    region: "United Kingdom",
+    sector: "Residential / MMC",
+    role: "Quantity Surveyor",
+    client: "Comfortable Living Ltd.",
+    detail:
+      "Quantity surveying and time-and-motion studies for a prefabricated demonstrator two-bedroom modular home. Measured process (takt) time across all construction activities and performed a detailed review and analysis of the cost plan — benchmarking modern methods of construction.",
+    highlights: ["Takt-time measurement", "MMC cost analysis", "Cost-plan review"],
+  },
+  {
+    project: "Newlands House & Oakhill Clinic",
+    location: "United Kingdom",
+    region: "United Kingdom",
+    sector: "Healthcare / Conversion",
+    role: "Construction Programming",
+    client: "Tydewell Ltd.",
+    detail:
+      "Developed the construction-stage works programme across buildings A, B, C and D for the Newlands House and former Oakhill Clinic development — sequencing the works packages for coordinated delivery.",
+    highlights: ["Construction-stage programme", "Multi-building sequencing"],
+  },
+  {
+    project: "Taj Samudra Hotel",
+    location: "Colombo, Sri Lanka",
+    region: "International",
+    sector: "Hospitality (5-Star)",
+    role: "Commercial Manager",
+    client: "Taj Hotels",
+    detail:
+      "Commercial manager within the projects team for the refurbishment of the landmark Taj Samudra city hotel — controlling cost and contract through a live, occupied five-star environment.",
+    highlights: ["Live occupied refurbishment", "Cost & contract control", "5-star hospitality"],
+  },
+  {
+    project: "Renuka Organic Factory & Warehouse",
+    location: "Watupitiwala FTZ, Sri Lanka",
+    region: "International",
+    sector: "Industrial",
+    role: "Projects Manager",
+    client: "Renuka Group",
+    detail:
+      "Projects manager engaged from the early design stage for a large coconut-products factory and warehouse. Developed contract documents, subcontract agreements and construction progress schedules, and implemented cost-control and measurement systems. The facility comprised circa 3,300 m² of storage (≈7,000 pallet positions) plus a two-storey factory and office building with mezzanine production and staff facilities.",
+    highlights: ["Early-stage engagement", "Contract documentation", "Cost-control systems"],
+  },
+] as const;
+
+export const projectPartners = [
+  "University of Salford",
+  "Mace",
+  "Ministry of Justice",
+  "Taj Hotels",
+  "Renuka Group",
+  "Wise Property Refurbishment",
 ] as const;

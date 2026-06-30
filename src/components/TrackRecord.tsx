@@ -43,6 +43,16 @@ export function TrackRecord() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={120} className="mt-12 flex justify-center">
+          <a
+            href="/projects"
+            className="group inline-flex items-center gap-2 rounded-full bg-navy-900 px-7 py-3.5 text-base font-bold text-white transition-all hover:bg-navy-800"
+          >
+            View all case studies
+            <Icon.arrow className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </a>
+        </Reveal>
       </div>
     </section>
   );

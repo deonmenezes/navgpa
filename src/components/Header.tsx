@@ -46,7 +46,7 @@ export function Header() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/#contact"
             className="rounded-full bg-gold-500 px-5 py-2.5 text-sm font-bold text-navy-900 shadow-sm transition-all hover:bg-gold-400 hover:shadow-md"
           >
             Start a Conversation
@@ -101,7 +101,7 @@ export function Header() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/#contact"
             onClick={() => setOpen(false)}
             className="mt-8 rounded-full bg-gold-500 px-6 py-4 text-center text-base font-bold text-navy-900"
           >
