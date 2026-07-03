@@ -20,33 +20,34 @@ export default function ProjectsPage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="relative isolate overflow-hidden bg-navy-950 text-white">
-          <div className="absolute inset-0 bg-blueprint opacity-80" aria-hidden />
+        <section className="relative isolate overflow-hidden bg-paper-0 text-navy-900">
+          <div className="absolute inset-0 bg-sheet" aria-hidden />
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-white/40 to-white" aria-hidden />
           <div
-            className="absolute -right-32 -top-24 h-[30rem] w-[30rem] rounded-full bg-navy-600/40 blur-[120px]"
+            className="absolute -right-32 -top-24 h-[30rem] w-[30rem] rounded-full bg-gold-300/25 blur-[130px]"
             aria-hidden
           />
           <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-36 sm:px-8 sm:pb-20 sm:pt-44">
             <Reveal>
               <a
                 href="/"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-white/55 transition-colors hover:text-gold-400"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-ink-500 transition-colors hover:text-ember-600"
               >
                 <Icon.arrow className="h-4 w-4 rotate-180" />
                 Back to home
               </a>
-              <p className="eyebrow mt-7 text-gold-400">Selected experience</p>
+              <p className="eyebrow mt-7 text-ember-500">Selected experience</p>
               <h1 className="mt-4 max-w-3xl font-display text-5xl font-extrabold uppercase leading-[0.95] sm:text-6xl">
                 Projects &amp; Case Studies
               </h1>
-              <p className="mt-6 max-w-2xl text-lg text-white/70">
+              <p className="mt-6 max-w-2xl text-lg text-ink-500">
                 A selection of commissions delivered across the UK and
                 internationally — spanning quantity surveying, BIM, commercial
                 and project management on landmark and specialist projects.
               </p>
             </Reveal>
           </div>
-          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold-500/40 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-navy-900/20 to-transparent" />
         </section>
 
         {/* Case studies by region */}

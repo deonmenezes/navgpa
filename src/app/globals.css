@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------ */
-/*  NAV Global Project Advisory — Design Tokens                        */
+/*  NAV Global Project Advisory — "Living Drawing Sheet" tokens        */
+/*  White-first identity: technical drawing paper, navy linework,      */
+/*  gold + ember brand accents.                                        */
 /* ------------------------------------------------------------------ */
 @theme {
-  /* Brand navy scale */
+  /* Brand navy scale (ink on paper) */
   --color-navy-950: #070d20;
   --color-navy-900: #0b1430;
   --color-navy-800: #101d44;
@@ -12,23 +14,33 @@
   --color-navy-600: #20356f;
   --color-navy-500: #2c4488;
 
-  /* Gold / bronze accent (from marketing collateral) */
+  /* Gold / bronze accent */
   --color-gold-300: #e7cd86;
   --color-gold-400: #d9bc73;
   --color-gold-500: #c4a24c;
   --color-gold-600: #a9863a;
 
-  /* Orange accent (from logo) */
+  /* Ember orange (logo) */
   --color-ember-400: #f47a3c;
   --color-ember-500: #e8631f;
   --color-ember-600: #cf5212;
 
-  /* Neutrals */
-  --color-sand-50: #faf8f3;
-  --color-sand-100: #f4f0e7;
-  --color-sand-200: #e9e2d3;
+  /* Paper neutrals (white theme) */
+  --color-paper-0: #ffffff;
+  --color-paper-50: #f7f9fc;
+  --color-paper-100: #eef2f8;
+  --color-paper-200: #dfe6f0;
   --color-ink-700: #2b3344;
   --color-ink-500: #54607a;
+
+  /* Legacy sand aliases (still used by a few components) */
+  --color-sand-50: #f7f9fc;
+  --color-sand-100: #eef2f8;
+  --color-sand-200: #dfe6f0;
+
+  /* Drawing linework */
+  --color-line: rgba(11, 20, 48, 0.1);
+  --color-line-strong: rgba(11, 20, 48, 0.22);
 
   /* Fonts (wired up via next/font variables in layout.tsx) */
   --font-display: var(--font-saira), "Arial Narrow", sans-serif;
@@ -36,6 +48,7 @@
 
   /* Easing */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* ------------------------------------------------------------------ */
@@ -50,14 +63,14 @@ html {
 body {
   font-family: var(--font-sans);
   color: var(--color-ink-700);
-  background: var(--color-sand-50);
+  background: var(--color-paper-0);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: var(--color-gold-500);
-  color: var(--color-navy-900);
+  background: var(--color-navy-900);
+  color: var(--color-gold-300);
 }
 
 /* ------------------------------------------------------------------ */
@@ -69,7 +82,6 @@ body {
     letter-spacing: -0.01em;
   }
 
-  /* Section eyebrow label */
   .eyebrow {
     font-family: var(--font-display);
     text-transform: uppercase;
@@ -79,21 +91,34 @@ body {
   }
 
   .text-gradient-gold {
-    background: linear-gradient(90deg, #e7cd86 0%, #c4a24c 55%, #a9863a 100%);
+    background: linear-gradient(90deg, #c4a24c 0%, #a9863a 55%, #e8631f 110%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
-  /* Blueprint grid background (hero) */
+  /* Drawing-sheet grid: fine lines + heavier major lines, on white */
+  .bg-sheet {
+    background-image:
+      linear-gradient(to right, rgba(11, 20, 48, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(11, 20, 48, 0.045) 1px, transparent 1px),
+      linear-gradient(to right, rgba(11, 20, 48, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(11, 20, 48, 0.08) 1px, transparent 1px);
+    background-size:
+      24px 24px,
+      24px 24px,
+      120px 120px,
+      120px 120px;
+  }
+
+  /* Legacy alias used by older sections */
   .bg-blueprint {
     background-image:
-      linear-gradient(to right, rgba(140, 170, 230, 0.07) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(140, 170, 230, 0.07) 1px, transparent 1px);
+      linear-gradient(to right, rgba(11, 20, 48, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(11, 20, 48, 0.05) 1px, transparent 1px);
     background-size: 46px 46px;
   }
 
-  /* Thin decorative rule with center diamond */
   .rule-dot::before,
   .rule-dot::after {
     content: "";
@@ -105,10 +130,34 @@ body {
     vertical-align: middle;
     margin: 0 0.85rem;
   }
+
+  /* Title-block frame, like the corner of a drawing sheet */
+  .sheet-corner {
+    position: relative;
+  }
+  .sheet-corner::before,
+  .sheet-corner::after {
+    content: "";
+    position: absolute;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-color: var(--color-line-strong);
+    border-style: solid;
+  }
+  .sheet-corner::before {
+    top: 0;
+    left: 0;
+    border-width: 2px 0 0 2px;
+  }
+  .sheet-corner::after {
+    bottom: 0;
+    right: 0;
+    border-width: 0 2px 2px 0;
+  }
 }
 
 /* ------------------------------------------------------------------ */
-/*  Scroll reveal animation                                            */
+/*  Scroll reveal                                                      */
 /* ------------------------------------------------------------------ */
 .reveal {
   opacity: 0;
@@ -124,64 +173,221 @@ body {
   transform: translateY(0);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-
-/* Subtle drifting glow for hero */
-@keyframes float-glow {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-    opacity: 0.55;
-  }
-  50% {
-    transform: translate3d(0, -16px, 0) scale(1.04);
-    opacity: 0.8;
-  }
-}
-.animate-float-glow {
-  animation: float-glow 11s ease-in-out infinite;
-}
-
-/* Marquee for sectors strip */
+/* ------------------------------------------------------------------ */
+/*  Marquee (sectors strip)                                            */
+/* ------------------------------------------------------------------ */
 @keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
-.animate-marquee {
-  animation: marquee 32s linear infinite;
-}
+.animate-marquee { animation: marquee 32s linear infinite; }
 .marquee-mask {
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 8%,
-    #000 92%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 8%,
-    #000 92%,
-    transparent
-  );
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
+
+/* Kept for any legacy usage */
+@keyframes float-glow {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.55; }
+  50%      { transform: translate3d(0, -16px, 0) scale(1.04); opacity: 0.8; }
+}
+.animate-float-glow { animation: float-glow 11s ease-in-out infinite; }
+
+/* ================================================================== */
+/*  SIGNATURE — 3D self-constructing tower (pure CSS 3D)               */
+/* ================================================================== */
+.b3d-scene {
+  perspective: 1400px;
+  perspective-origin: 50% 30%;
+}
+.b3d-world {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(62deg) rotateZ(45deg);
+  animation: b3d-orbit 36s linear infinite;
+}
+@keyframes b3d-orbit {
+  from { transform: rotateX(62deg) rotateZ(45deg); }
+  to   { transform: rotateX(62deg) rotateZ(405deg); }
+}
+
+/* Ground slab: drawing-sheet grid that rotates with the world */
+.b3d-ground {
+  position: absolute;
+  transform-style: preserve-3d;
+  background-image:
+    linear-gradient(to right, rgba(11, 20, 48, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 20, 48, 0.1) 1px, transparent 1px);
+  background-size: 36px 36px;
+  border: 1.5px solid var(--color-line-strong);
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Every face of the tower is a plane in the same 3D world */
+.b3d-face {
+  position: absolute;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+}
+.b3d-wall {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.86)),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(11, 20, 48, 0.16) 0 1px,
+      transparent 1px 14px
+    );
+  border: 1.5px solid rgba(11, 20, 48, 0.4);
+}
+.b3d-slab {
+  background: rgba(247, 249, 252, 0.96);
+  border: 1.5px solid rgba(11, 20, 48, 0.5);
+  background-image:
+    linear-gradient(to right, rgba(11, 20, 48, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 20, 48, 0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Each floor drops in, locks, holds, then the loop resets */
+.b3d-floor {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  opacity: 0;
+  animation: b3d-build var(--b3d-cycle, 16s) var(--ease-out-expo) infinite;
+  animation-delay: var(--b3d-delay, 0s);
+}
+@keyframes b3d-build {
+  0%    { opacity: 0; transform: translateZ(160px) scale(0.86); }
+  4.5%  { opacity: 1; transform: translateZ(0) scale(1.02); }
+  6.5%  { transform: translateZ(0) scale(1); }
+  88%   { opacity: 1; transform: translateZ(0) scale(1); }
+  96%,
+  100%  { opacity: 0; transform: translateZ(0) scale(1); }
+}
+
+/* Crane: mast stands in the world; jib slews back and forth */
+.b3d-crane {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+.b3d-crane-jib {
+  position: absolute;
+  transform-style: preserve-3d;
+  animation: b3d-slew 9s ease-in-out infinite alternate;
+}
+@keyframes b3d-slew {
+  from { transform: rotateZ(-50deg); }
+  to   { transform: rotateZ(45deg); }
+}
+.b3d-hook {
+  animation: b3d-hoist 4.5s ease-in-out infinite alternate;
+}
+@keyframes b3d-hoist {
+  from { transform: rotateX(-90deg) scaleY(0.45); }
+  to   { transform: rotateX(-90deg) scaleY(1); }
+}
+.b3d-beam {
+  background: var(--color-ember-500);
+  border: 1px solid rgba(207, 82, 18, 0.9);
+}
+
+/* Billboarded measurement callouts around the scene */
+.b3d-callout {
+  animation: callout-in 0.9s var(--ease-out-expo) both;
+  animation-delay: var(--callout-delay, 0.4s);
+}
+@keyframes callout-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.94); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.b3d-pulse {
+  animation: b3d-pulse 2.6s ease-in-out infinite;
+}
+@keyframes b3d-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 99, 31, 0.35); }
+  50%      { box-shadow: 0 0 0 9px rgba(232, 99, 31, 0); }
+}
+
+/* Dimension lines drawing themselves (SVG stroke) */
+.draw-line {
+  stroke-dasharray: 260;
+  stroke-dashoffset: 260;
+  animation: draw 1.6s var(--ease-out-expo) forwards;
+  animation-delay: var(--draw-delay, 0.6s);
+}
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ================================================================== */
+/*  BIM 5D exploded-layer stack                                        */
+/* ================================================================== */
+.bim-scene {
+  perspective: 1600px;
+}
+.bim-stack {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(58deg) rotateZ(-38deg);
+}
+.bim-layer {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  transition: transform 1.1s var(--ease-spring), box-shadow 0.4s ease;
+  transition-delay: var(--bim-delay, 0ms);
+  border-radius: 14px;
+  border: 1.5px solid rgba(11, 20, 48, 0.35);
+  background: rgba(255, 255, 255, 0.92);
+}
+.bim-exploded .bim-layer {
+  transform: translateZ(var(--bim-z, 0px));
+}
+.bim-layer:hover {
+  box-shadow: 0 24px 60px rgba(11, 20, 48, 0.22);
+  border-color: var(--color-ember-500);
+}
+.bim-label {
+  transform: rotateZ(38deg) rotateX(-58deg);
+  transform-origin: left center;
+}
+
+/* ================================================================== */
+/*  3D tilt cards (services)                                           */
+/* ================================================================== */
+.tilt-wrap {
+  perspective: 900px;
+}
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform;
+}
+.tilt-card .tilt-pop {
+  transition: transform 0.35s ease;
+}
+.tilt-card:hover .tilt-pop,
+.tilt-card:focus-within .tilt-pop {
+  transform: translateZ(34px);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Reduced motion: freeze the site into its finished state            */
+/* ------------------------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
   .animate-marquee,
-  .animate-float-glow {
-    animation: none;
-  }
+  .animate-float-glow,
+  .b3d-world,
+  .b3d-crane-jib,
+  .b3d-hook,
+  .b3d-pulse { animation: none; }
+  .b3d-floor { animation: none; opacity: 1; transform: none; }
+  .b3d-callout { animation: none; opacity: 1; }
+  .draw-line { animation: none; stroke-dashoffset: 0; }
+  .bim-layer { transition: none; }
+  .tilt-card, .tilt-card .tilt-pop { transition: none; }
 }

@@ -26,13 +26,13 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-navy-900/95 backdrop-blur-md shadow-[0_8px_30px_rgba(7,13,32,0.35)]"
+          ? "border-b border-navy-900/10 bg-white/92 shadow-[0_8px_30px_rgba(11,20,48,0.08)] backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
         <a href="#top" aria-label="NAV Global Project Advisory — home">
-          <Logo variant="light" />
+          <Logo variant="dark" />
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex">
@@ -40,14 +40,14 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm font-semibold text-white/75 transition-colors hover:text-gold-400"
+              className="text-sm font-semibold text-ink-500 transition-colors hover:text-ember-600"
             >
               {item.label}
             </a>
           ))}
           <a
             href="/#contact"
-            className="rounded-full bg-gold-500 px-5 py-2.5 text-sm font-bold text-navy-900 shadow-sm transition-all hover:bg-gold-400 hover:shadow-md"
+            className="rounded-full bg-navy-900 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition-all hover:bg-navy-800 hover:shadow-md"
           >
             Start a Conversation
           </a>
@@ -59,7 +59,7 @@ export function Header() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-lg text-white lg:hidden"
+          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-lg text-navy-900 lg:hidden"
         >
           <span className="sr-only">Menu</span>
           <div className="flex flex-col gap-[5px]">
@@ -84,7 +84,7 @@ export function Header() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 z-40 bg-navy-950/98 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 z-40 bg-white/98 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
@@ -94,7 +94,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="border-b border-white/10 py-4 font-display text-3xl font-semibold uppercase tracking-wide text-white transition-colors hover:text-gold-400"
+              className="border-b border-navy-900/10 py-4 font-display text-3xl font-semibold uppercase tracking-wide text-navy-900 transition-colors hover:text-ember-600"
               style={{ transitionDelay: `${i * 20}ms` }}
             >
               {item.label}
@@ -103,7 +103,7 @@ export function Header() {
           <a
             href="/#contact"
             onClick={() => setOpen(false)}
-            className="mt-8 rounded-full bg-gold-500 px-6 py-4 text-center text-base font-bold text-navy-900"
+            className="mt-8 rounded-full bg-navy-900 px-6 py-4 text-center text-base font-bold text-white"
           >
             Start a Conversation
           </a>

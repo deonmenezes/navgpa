@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { ValueProps } from "@/components/ValueProps";
 import { Approach } from "@/components/Approach";
 import { Services } from "@/components/Services";
+import { BimShowcase } from "@/components/BimShowcase";
 import { About } from "@/components/About";
 import { TrackRecord } from "@/components/TrackRecord";
 import { Sectors } from "@/components/Sectors";
@@ -49,6 +50,7 @@ export default function Home() {
         <ValueProps />
         <Approach />
         <Services />
+        <BimShowcase />
         <About />
         <TrackRecord />
         <Sectors />
