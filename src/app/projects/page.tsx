@@ -3,7 +3,8 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { Icon } from "@/components/Icons";
-import { caseStudies, projectPartners, company } from "@/lib/content";
+import Image from "next/image";
+import { caseStudies, projectPartners, company, bimBenefits, personnel } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Projects & Case Studies",
@@ -74,16 +75,27 @@ export default function ProjectsPage() {
                         key={c.project}
                         delay={(i % 2) * 90}
                         as="article"
-                        className="flex flex-col rounded-2xl border border-sand-200 bg-white p-7 shadow-[0_2px_22px_rgba(11,20,48,0.05)] transition-all hover:-translate-y-1 hover:border-gold-400/60 hover:shadow-[0_18px_48px_rgba(11,20,48,0.12)] sm:p-9"
+                        className="group flex flex-col overflow-hidden rounded-2xl border border-sand-200 bg-white shadow-[0_2px_22px_rgba(11,20,48,0.05)] transition-all hover:-translate-y-1 hover:border-gold-400/60 hover:shadow-[0_18px_48px_rgba(11,20,48,0.12)]"
                       >
+                        {/* Project image from the company profile */}
+                        <div className="relative h-52 w-full overflow-hidden border-b border-sand-200 bg-paper-100 sm:h-56">
+                          <Image
+                            src={c.image}
+                            alt={`${c.project} — ${c.sector}`}
+                            fill
+                            sizes="(min-width: 1024px) 50vw, 100vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                          />
+                          <span className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.16em] text-navy-900 shadow-sm backdrop-blur">
+                            {c.sector}
+                          </span>
+                        </div>
+
+                        <div className="flex flex-1 flex-col p-7 sm:p-9">
                         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-gold-600">
                           <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.16em]">
                             <Icon.pin className="h-4 w-4" />
                             {c.location}
-                          </span>
-                          <span className="text-sand-200">·</span>
-                          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-500">
-                            {c.sector}
                           </span>
                         </div>
 
@@ -111,6 +123,7 @@ export default function ProjectsPage() {
                             </li>
                           ))}
                         </ul>
+                        </div>
                       </Reveal>
                     ))}
                   </div>
@@ -132,6 +145,87 @@ export default function ProjectsPage() {
                 ))}
               </div>
             </Reveal>
+          </div>
+        </section>
+
+        {/* The BIM advantage — full benefits list from the company profile */}
+        <section className="relative overflow-hidden bg-white">
+          <div className="absolute inset-0 bg-sheet opacity-50" aria-hidden />
+          <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24">
+            <Reveal className="max-w-2xl">
+              <p className="eyebrow text-ember-500">The BIM advantage</p>
+              <h2 className="mt-4 font-display text-4xl font-bold uppercase leading-tight text-navy-900 sm:text-5xl">
+                What our BIM approach delivers
+              </h2>
+              <p className="mt-5 text-ink-500">
+                Twelve concrete benefits our clients get from BIM-aligned
+                delivery — from the golden thread of design intent through to
+                measured post-occupancy performance.
+              </p>
+            </Reveal>
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {bimBenefits.map((b, i) => (
+                <Reveal
+                  key={b.title}
+                  delay={(i % 3) * 70}
+                  as="article"
+                  className="flex gap-4 rounded-2xl border border-sand-200 bg-paper-50 p-6 transition-colors hover:border-gold-400/60 hover:bg-white"
+                >
+                  <span className="font-display text-2xl font-extrabold text-gold-500">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-base font-bold uppercase tracking-wide text-navy-900">
+                      {b.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-ink-500">
+                      {b.body}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Resource personnel */}
+        <section className="bg-paper-50">
+          <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24">
+            <Reveal className="max-w-2xl">
+              <p className="eyebrow text-ember-500">Resource personnel</p>
+              <h2 className="mt-4 font-display text-4xl font-bold uppercase leading-tight text-navy-900 sm:text-5xl">
+                The network behind our projects
+              </h2>
+              <p className="mt-5 text-ink-500">
+                Our strength is our knowledge, experience and ability to deliver
+                project goals successfully — a multidisciplinary team of
+                chartered architects, engineers, services engineers and
+                BIM-qualified quantity surveyors.
+              </p>
+            </Reveal>
+            <div className="mt-12 grid gap-5 sm:grid-cols-2">
+              {personnel.map((person, i) => (
+                <Reveal
+                  key={person.name}
+                  delay={(i % 2) * 90}
+                  as="article"
+                  className="rounded-2xl border border-sand-200 bg-white p-7 shadow-[0_2px_22px_rgba(11,20,48,0.05)] transition-all hover:-translate-y-1 hover:shadow-[0_18px_48px_rgba(11,20,48,0.1)] sm:p-8"
+                >
+                  <h3 className="font-display text-xl font-bold uppercase tracking-wide text-navy-900">
+                    {person.name}
+                  </h3>
+                  <p className="mt-1 text-sm font-semibold text-ember-600">
+                    {person.role}
+                  </p>
+                  <p className="mt-1 text-xs font-medium text-gold-600">
+                    {person.credentials}
+                  </p>
+                  <p className="mt-4 text-sm leading-relaxed text-ink-500">
+                    {person.body}
+                  </p>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 

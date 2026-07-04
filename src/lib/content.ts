@@ -154,6 +154,7 @@ export const publication = {
 export const trackRecord = [
   {
     project: "Battersea Power Station",
+    image: "/projects/battersea.jpg",
     location: "London, UK",
     role: "BIM coordination · 4D structural simulation",
     detail:
@@ -161,6 +162,7 @@ export const trackRecord = [
   },
   {
     project: "Soapworks — Ministry of Justice",
+    image: "/projects/soapworks.jpg",
     location: "MediaCityUK",
     role: "Government Soft Landings research",
     detail:
@@ -168,6 +170,7 @@ export const trackRecord = [
   },
   {
     project: "Taj Samudra Hotel",
+    image: "/projects/taj-samudra.jpg",
     location: "Colombo, Sri Lanka",
     role: "Commercial management",
     detail:
@@ -175,6 +178,7 @@ export const trackRecord = [
   },
   {
     project: "Renuka Organic Factory & Warehouse",
+    image: "/projects/renuka-factory.jpg",
     location: "Watupitiwala FTZ, Sri Lanka",
     role: "Project management · cost control",
     detail:
@@ -182,6 +186,7 @@ export const trackRecord = [
   },
   {
     project: "Church of the Ascension",
+    image: "/projects/church-ascension.jpg",
     location: "Salford, UK",
     role: "Value engineering · low-carbon",
     detail:
@@ -196,6 +201,7 @@ export const trackRecord = [
   },
   {
     project: "Newlands House & Oakhill Clinic",
+    image: "/projects/newlands-house.jpg",
     location: "United Kingdom",
     role: "Construction programming",
     detail:
@@ -231,6 +237,7 @@ export const nav = [
 export const caseStudies = [
   {
     project: "Battersea Power Station",
+    image: "/projects/battersea.jpg",
     location: "London, United Kingdom",
     region: "United Kingdom",
     sector: "Mixed-Use Regeneration",
@@ -242,6 +249,7 @@ export const caseStudies = [
   },
   {
     project: "Soapworks — Ministry of Justice",
+    image: "/projects/soapworks.jpg",
     location: "MediaCityUK, United Kingdom",
     region: "United Kingdom",
     sector: "Government / Workplace",
@@ -253,6 +261,7 @@ export const caseStudies = [
   },
   {
     project: "Church of the Ascension",
+    image: "/projects/church-ascension.jpg",
     location: "Lower Broughton, Salford, UK",
     region: "United Kingdom",
     sector: "Heritage / Low-Carbon",
@@ -264,6 +273,7 @@ export const caseStudies = [
   },
   {
     project: "Demonstrator Modular Home",
+    image: "/projects/modular-home.jpg",
     location: "United Kingdom",
     region: "United Kingdom",
     sector: "Residential / MMC",
@@ -275,6 +285,7 @@ export const caseStudies = [
   },
   {
     project: "Newlands House & Oakhill Clinic",
+    image: "/projects/newlands-house.jpg",
     location: "United Kingdom",
     region: "United Kingdom",
     sector: "Healthcare / Conversion",
@@ -286,6 +297,7 @@ export const caseStudies = [
   },
   {
     project: "Taj Samudra Hotel",
+    image: "/projects/taj-samudra.jpg",
     location: "Colombo, Sri Lanka",
     region: "International",
     sector: "Hospitality (5-Star)",
@@ -297,6 +309,7 @@ export const caseStudies = [
   },
   {
     project: "Renuka Organic Factory & Warehouse",
+    image: "/projects/renuka-factory.jpg",
     location: "Watupitiwala FTZ, Sri Lanka",
     region: "International",
     sector: "Industrial",
@@ -315,4 +328,91 @@ export const projectPartners = [
   "Taj Hotels",
   "Renuka Group",
   "Wise Property Refurbishment",
+  "Nu-lok Roofing Systems",
+] as const;
+
+/**
+ * The BIM advantage — benefits of our BIM-aligned delivery approach,
+ * from the company profile.
+ */
+export const bimBenefits = [
+  {
+    title: "The golden thread",
+    body: "BIM is a key element of design and construction, maintaining the golden thread of the building's purpose through to delivery and operation.",
+  },
+  {
+    title: "Early end-user engagement",
+    body: "End users are engaged early and throughout, with a BIM champion embedded on the project team during design and construction.",
+  },
+  {
+    title: "Committed aftercare",
+    body: "The design and construction team commits to aftercare post-construction — not just handover and walk away.",
+  },
+  {
+    title: "Post-occupancy feedback",
+    body: "Post-occupancy evaluation feeds lessons learnt back to the design and construction team and into future projects.",
+  },
+  {
+    title: "FM-ready asset data",
+    body: "A fully populated asset data set feeds directly into FM systems, with modelling that supports planning modifications across the building life cycle.",
+  },
+  {
+    title: "Buildings that perform",
+    body: "The outcome is a building that meets end-user needs and required operational outcomes — measured, not assumed.",
+  },
+  {
+    title: "Early design challenge",
+    body: "Design decisions that would impact ongoing maintenance and operating cost are challenged early, while change is still cheap.",
+  },
+  {
+    title: "Whole-life cost focus",
+    body: "Most asset expenditure happens over the lifecycle, not the capital phase — operational cost impacts are considered from day one.",
+  },
+  {
+    title: "Smooth commissioning & handover",
+    body: "Training, commissioning and handover are planned early, cutting protracted handovers and reaching optimal building performance sooner.",
+  },
+  {
+    title: "Measured performance",
+    body: "Clear building-performance measures are monitored up to three years post-completion, with remedy mechanisms where performance is not met.",
+  },
+  {
+    title: "Proven savings",
+    body: "As early adopters of BIM, we have identified significant time and cost savings on new-build and refurbishment projects in the UK and internationally.",
+  },
+  {
+    title: "Less waste, less delay",
+    body: "Estimating, detailed BOQs and commercial assistance delivered in line with the Level 2 BIM protocol help minimise waste and delay.",
+  },
+] as const;
+
+/**
+ * Resource personnel — the multidisciplinary network behind our projects,
+ * from the company profile (personal contact details intentionally omitted).
+ */
+export const personnel = [
+  {
+    name: "N. Narendra Vasudeva",
+    role: "Director",
+    credentials: "MSc (BIM), BSc (Hons) QS (UK), Dip. Commercial Arb. (SL), ICIOB",
+    body: "Leads contracts and project management from letter of intent to successful handover — contract negotiation with clients, consultants and contractors, resource and cost planning, claims and variations, and enforcement of contractual obligations while avoiding contractual risk.",
+  },
+  {
+    name: "Deepali Kirtikumar Mody",
+    role: "Chartered Architect",
+    credentials: "Senior Architect — Hyundai E&C, John Keells Waterfront",
+    body: "Led shop-drawing teams, value-engineering proposals and design coordination across MEP and structural disciplines on one of Sri Lanka's largest mixed-use projects, with deep knowledge of local practice and building regulations.",
+  },
+  {
+    name: "Rohan Saputhanthri",
+    role: "Chartered Building Services Engineer",
+    credentials: "BSc Eng, CEng, MIE (SL), LEED GA (USA), MASHRAE (USA)",
+    body: "Fifteen years across design, estimation, testing, commissioning and project management of MEP services — star-class hotels, hospitals, airports, and high-rise commercial and residential towers in Sri Lanka and overseas.",
+  },
+  {
+    name: "Sarathchandra Samarasekara",
+    role: "Measurement Engineer",
+    credentials: "BSc (Eng), MSc (Project Management)",
+    body: "Measurement engineering and engineering consultancy, including major infrastructure such as the Moragolla Hydropower Project with Nippon Koei.",
+  },
 ] as const;
