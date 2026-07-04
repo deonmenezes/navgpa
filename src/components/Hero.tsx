@@ -40,11 +40,11 @@ export function Hero() {
             </p>
 
             <h1 className="mt-4 font-display text-5xl font-extrabold uppercase leading-[0.92] tracking-tight text-navy-900 sm:text-6xl lg:text-7xl">
-              Building
+              Construction
               <br />
-              Confidence.
+              &amp; Commercial
               <br />
-              <span className="text-gradient-gold">Delivering Value.</span>
+              <span className="text-gradient-gold">Advisory Services.</span>
             </h1>
 
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-ink-500">
