@@ -321,6 +321,39 @@ body {
 }
 
 /* ================================================================== */
+/*  QS live cost-plan (Bill of Quantities that measures itself)        */
+/* ================================================================== */
+.qs-bar {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+.qs-live .qs-bar {
+  animation: qs-grow 1.3s var(--ease-out-expo) both;
+  animation-delay: var(--qs-delay, 0ms);
+}
+@keyframes qs-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+.qs-scan {
+  opacity: 0;
+}
+.qs-live .qs-scan {
+  animation: qs-scan 3.6s ease-in-out infinite;
+}
+@keyframes qs-scan {
+  0%   { top: 6%;  opacity: 0; }
+  12%  { opacity: 0.9; }
+  50%  { top: 90%; opacity: 0.9; }
+  88%  { opacity: 0.9; }
+  100% { top: 6%;  opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qs-bar, .qs-live .qs-bar { animation: none; transform: scaleX(1); }
+  .qs-live .qs-scan { animation: none; opacity: 0; }
+}
+
+/* ================================================================== */
 /*  BIM 5D exploded-layer stack                                        */
 /* ================================================================== */
 .bim-scene {

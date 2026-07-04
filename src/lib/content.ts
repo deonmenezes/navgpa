@@ -9,7 +9,7 @@ export const company = {
   shortName: "NavGPA",
   legalLegacy: "Nav Projects Support Ltd.",
   tagline: "Building Confidence. Delivering Value.",
-  pillars: ["Advise", "Manage", "Deliver Value"],
+  pillars: ["Construction & Commercial Advisory", "Quantity Surveying", "BIM"],
   badge: ["USA Based", "Globally Focused", "Future Ready"],
   heroLede:
     "Expert construction & commercial advisory powered by digital innovation, data and global experience.",

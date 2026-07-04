@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { ValueProps } from "@/components/ValueProps";
+import { QsShowcase } from "@/components/QsShowcase";
 import { Approach } from "@/components/Approach";
 import { Services } from "@/components/Services";
 import { BimShowcase } from "@/components/BimShowcase";
@@ -48,6 +49,7 @@ export default function Home() {
       <main>
         <Hero />
         <ValueProps />
+        <QsShowcase />
         <Approach />
         <Services />
         <BimShowcase />
