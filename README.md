@@ -52,7 +52,7 @@ All copy, services, projects and contact details live in
 
 ## Contact form
 
-The enquiry form composes a `mailto:` to `info@navgpa.com`. To capture
+The enquiry form composes a `mailto:` to `n.n.vasudeva@navgpa.com`. To capture
 submissions server-side later, swap the handler in
 `src/components/ContactForm.tsx` for a form endpoint (Formspree, Web3Forms,
 or a Next.js route handler).

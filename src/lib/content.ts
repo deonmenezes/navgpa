@@ -18,8 +18,8 @@ export const company = {
   location: "San Francisco, California",
   phone: "+1 510 322 1536",
   phoneHref: "tel:+15103221536",
-  email: "info@navgpa.com",
-  emailHref: "mailto:info@navgpa.com",
+  email: "n.n.vasudeva@navgpa.com",
+  emailHref: "mailto:n.n.vasudeva@navgpa.com",
   web: "navgpa.com",
 } as const;
 
